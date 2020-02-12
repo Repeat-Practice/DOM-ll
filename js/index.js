@@ -42,7 +42,7 @@ footer.addEventListener('click', (e) => e.target.style.fontSize = '2rem');
 
 //9
 let destinations = document.querySelectorAll('.destination h4');
-destinations.forEach(a => a.addEventListener('mouseover', (e) => e.target.style.color = 'blue'));
+destinations.forEach(a => a.addEventListener('mouseover', (e) => e.target.style.color = 'orange'));
 
 //10
 const backgroundColor = document.querySelector('.text-content p');
@@ -51,3 +51,27 @@ backgroundColor.addEventListener('mouseover', (e) => {
   console.log(`event bubbled up again`);
 });
 
+//Stop propagation
+
+title.addEventListener('mouseover', function(event) {
+    console.log(`clicked`);
+    title.style.color ='green';
+    title.style.transition = 'color 0.5s';
+     event.stopPropagation();
+  });
+  
+  
+let img = document.querySelector("img-fluid rounded").addEventListener('dblclick',() => {
+    gsap.to("img-fluid rounded",{
+        duration:1,
+        rotateY:180,
+        ease: "elastic(1,0.75)"
+    })
+})
+gsap.to("img-fluid rounded",{
+    duration:1,
+    x:200,
+    scale:2,
+    rotate:180
+})
+// img.to('.img-content', {duration: 2, x: 100, opacity: 0.5});
